@@ -1,8 +1,16 @@
 .category-container {
+  flex-grow: 0;
+  /* elements don’t grow */
+  flex-shrink: 0;
+  /* elements don’t shrink in a flexible way */
+  flex-basis: auto;
+  /* the width of the elements will be set by proportions in `width` due to flex-basis not support workaround */
+  // width: calc(33.33% - 60px);
   min-width: 30%;
   height: 240px;
-  flex: 1 1 auto;
+  // flex: 1 100%;
   display: flex;
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
