@@ -6,7 +6,7 @@ const Directory = ({categories}) => {
   return (
     <Fragment>
       <div className="directory-container">
-        {categories.map((category) => (
+        {categories.map(category => (
           <CategoryItem key={category.id} category={category} />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { ReactComponent as EstherLogo } from '../../assets/esthers-logo.svg';
+import { ReactComponent as EstherLogo } from '../../assets/esther-logo.svg';
 import "./navigation.styles.scss";
 
 const Navigation = () => {
@@ -12,7 +12,7 @@ const Navigation = () => {
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">SHOP</Link>
-          <Link className="nav-link" to="/shop">CONTACT</Link>
+          <Link className="nav-link" to="/contact">CONTACT</Link>
           <Link className="nav-link" to="/sign-in">SIGN IN</Link>
           <Link className="nav-link" to="/shop">CART</Link>
         </div>
