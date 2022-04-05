@@ -1,9 +1,11 @@
 import './sign-in.styles.scss';
 
 import SignUp from '../../components/sign-up/sign-up.component';
+
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,} from '../../utils/firebase/firebase.utils'
+  createUserDocumentFromAuth,
+} from '../../utils/firebase/firebase.utils'
 
 const SignIn = () => {
 
