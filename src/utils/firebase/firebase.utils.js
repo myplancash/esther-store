@@ -6,7 +6,8 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
@@ -26,7 +27,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
- googleProvider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: "select_account"
 })
 
@@ -40,9 +41,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
   if(!userAuth) return
   const userDocRef = doc(db, 'users', userAuth.uid)
   const userSnapshot = await getDoc(userDocRef)
-  console.log(userAuth)
   //to check whether or not the doc actually exists it returns a boole
-  console.log(userSnapshot.exists());
+  // console.log(userSnapshot.exists());
   // if it does not exist it will return true and we will set new Doc
   if(!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
@@ -65,4 +65,9 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if(!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password);
+}
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if(!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
 }

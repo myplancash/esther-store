@@ -1,9 +1,12 @@
 .sign-up-form {
   display: flex;
   flex-direction: column;
-  width: 390px;
+  width: 380px;
 
   h2 {
-    margin: 18px 0px;
+    margin: 12px 0px;
+  }
+  button[type="submit"] {
+    margin-left: 10px;
   }
 }
