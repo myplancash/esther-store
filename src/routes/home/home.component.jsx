@@ -6,27 +6,32 @@ const Home = () => {
     {
       "id": 1,
       "title": "hats",
-      "imageUrl": "https://i.ibb.co/s1GgygY/hats.jpg"
+      "imageUrl": "https://i.ibb.co/gv7cDfS/pexels-godisable-jacob-1734798.jpg"
     },
     {
       "id": 2,
       "title": "jeans",
-      "imageUrl": "https://i.ibb.co/C1qGB0w/jeans.jpg"
+      "imageUrl": "https://i.ibb.co/1MYdCww/jeans.jpg"
     },
     {
       "id": 3,
-      "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/NrNSwdv/sneakers.jpg"
+      "title": "polo",
+      "imageUrl": "https://i.ibb.co/G220RVX/polo.jpg"
     },
     {
       "id": 4,
-      "title": "womens",
-      "imageUrl": "https://i.ibb.co/wr0C5PM/womens.jpg"
+      "title": "sneakers",
+      "imageUrl": "https://i.ibb.co/Fxw30VG/sneakers.jpg",
     },
     {
       "id": 5,
+      "title": "womens",
+      "imageUrl": "https://i.ibb.co/w6XXkDT/womens.jpg"
+    },
+    {
+      "id": 6,
       "title": "mens",
-      "imageUrl": "https://i.ibb.co/cwM6fjg/mens.jpg"
+      "imageUrl": "https://i.ibb.co/QY270Dd/mens.jpg"
     }
   ]
   return (

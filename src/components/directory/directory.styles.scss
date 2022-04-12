@@ -3,7 +3,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 50px; */
 }
+
 p {
   font-size: 14px;
   line-height: 18px;

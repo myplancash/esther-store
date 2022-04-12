@@ -1,3 +1,12 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-flex: 0 1 auto;
+}
+
 body {
   color: rgb(72 72 72);
   font-family: 'Sora',
@@ -20,13 +29,4 @@ code {
 a {
   text-decoration: none;
   color: black;
-}
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -ms-flex: 0 1 auto;
 }
