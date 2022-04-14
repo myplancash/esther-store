@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Esther Clothing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Discover our Curated Collection of Esther
 
-## Available Scripts
+A luxury fashion house founded in 1981 by the Colombian designer Maria Esther Daza
 
-In the project directory, you can run:
+![esther-preview](https://user-images.githubusercontent.com/64751892/163489241-3d951d60-3a70-4d89-9e1f-3fab3e06232b.gif)
 
 ### `npm start`
 
