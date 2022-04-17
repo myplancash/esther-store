@@ -12,7 +12,16 @@ import {
   onAuthStateChanged
 } from 'firebase/auth';
 
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -38,6 +47,39 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+  ) => {
+  const collectionRef = collection(db, collectionKey)
+  const batch = writeBatch(db)
+
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object)
+  })
+  await batch.commit();
+  console.log('done')
+}
+
+//is a async method that will get back a promise
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+
+  const q = query(collectionRef);
+  const querySnapshot = await getDocs(q);
+  // querySnapshot.docs() is an Array of objects
+  const collectionMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    //destructure off the values of the data of docSnapshot
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc
+  }, {});
+
+  return collectionMap;
+}
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
   if(!userAuth) return

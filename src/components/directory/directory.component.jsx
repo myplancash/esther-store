@@ -1,13 +1,13 @@
 import './directory.styles.scss';
-import CategoryItem from '../category-item/category-item.component';
+import DirectoryItem from '../directory-item/directory-item.component';
 import { Fragment } from 'react';
 
-const Directory = ({categories}) => {
+const Directory = ({directories}) => {
   return (
     <Fragment>
       <div className="directory-container">
-        {categories.map(category => (
-          <CategoryItem key={category.id} category={category} />
+        {directories.map(category => (
+          <DirectoryItem key={category.id} category={category} />
         ))}
       </div>
       <p>Inspiration for future getaways
