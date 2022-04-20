@@ -1,24 +1,27 @@
-import './cart-item.styles.scss';
 import {useContext} from 'react';
 import {CartContext} from '../../contexts/cart.context';
+
+import {CartItemContainer, ItemDetails, CloseSymbol} from './cart-item.styles.jsx';
 
 const CartItem = ({ cartItem }) => {
 
   const { clearItemToCart } = useContext(CartContext)
-
-  const clearItemtHandler = () => clearItemToCart(cartItem)
   const {quantity, name, imageUrl, price} = cartItem;
+
+  const clearItemHandler = () => clearItemToCart(cartItem)
+
+
   return (
-    <div className='cart-item-container'>
+    <CartItemContainer>
       <img src={imageUrl} alt={`${name}`} />
-      <div className='item-details'>
-        <span className='name'>{name}</span>
-        <span className='price'>
+      <ItemDetails>
+        <span>{name}</span>
+        <span>
           {quantity} x ${quantity * price}
         </span>
-      </div>
-      <span className='close-symbol' onClick={clearItemtHandler}>&#10005;</span>
-    </div>
+      </ItemDetails>
+      <CloseSymbol onClick={clearItemHandler}>&#10005;</CloseSymbol>
+    </CartItemContainer>
   )
 
 }

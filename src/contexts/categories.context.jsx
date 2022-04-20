@@ -9,9 +9,6 @@ export const CategoriesContext = createContext({
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
-  const value = { categoriesMap };
-
-
 
   // every time you run it it will set new values to your firestore db
   /* useEffect(() => {
@@ -22,10 +19,13 @@ export const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
+      console.log(categoryMap);
       setCategoriesMap(categoryMap)
-    }
+    };
     getCategoriesMap()
   }, []);
+
+  const value = { categoriesMap };
 
   return (
     <CategoriesContext.Provider value={value}>

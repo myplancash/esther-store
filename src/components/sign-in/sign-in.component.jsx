@@ -1,18 +1,14 @@
 import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 // import { UserContext } from '../../contexts/user.context';
-
-
-import './sign-in.styles.scss';
-
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 
+import { SignInContainer, ButtonsContainer } from './sign-in.styles.jsx';
 
 const defaultFormFields = {
   email: '',
@@ -37,11 +33,12 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const {user} = await signInAuthUserWithEmailAndPassword(email, password);
-      // setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
-      switch(error.code) {
+      console.log('user sign in failed', error);
+    }
+      /* switch(error.code) {
         case 'auth/user-not-found':
           alert("No user associated with this email, create an account first!");
           break;
@@ -50,8 +47,7 @@ const SignIn = () => {
           break;
         default:
           console.log(error)
-      }
-    }
+      } */
   }
 
   const handleChange = (event) => {
@@ -61,7 +57,7 @@ const SignIn = () => {
 
 
   return (
-    <div className="sign-in-form">
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign In  with your email and password:</span>
       <form onSubmit={handleSubmit}>
@@ -83,12 +79,17 @@ const SignIn = () => {
           value={password}
           required
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign In</Button>
-          <Button type="button" onClick={signInWithGoogle} buttonStyle="google">Sign In With Google</Button>
-        </div>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}>
+              Sign In With Google
+          </Button>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   )
 }
 

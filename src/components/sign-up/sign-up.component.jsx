@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 
 import FormInput from '../form-input/form-input.component';
@@ -6,7 +6,7 @@ import Button from '../button/button.component';
 
 // import { UserContext } from '../../contexts/user.context';
 
-import './sign-up.styles.scss';
+import { SignUpForm } from './sign-up.styles.jsx';
 
 const defaultFormFields = {
   displayName: '',
@@ -55,7 +55,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="sign-up-form">
+    <SignUpForm>
       <h2>Create a new account</h2>
       <span>It’s quick and easy.</span>
       <form onSubmit={handleSubmit}>
@@ -95,9 +95,9 @@ const SignUp = () => {
           value={confirmPassword}
           required
         />
-        <Button buttonStyle="" type="submit">Sign Up</Button>
+        <Button type="submit">Sign Up</Button>
       </form>
-    </div>
+    </SignUpForm>
   )
 }
 
