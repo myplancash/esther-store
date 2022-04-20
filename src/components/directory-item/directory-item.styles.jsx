@@ -17,6 +17,7 @@ export const BackgroundImage = styled.div`
   flex: 1 100%; */
 `
 
+
 export const Body = styled.div`
   height: 90px;
   padding: 0 25px;
