@@ -53,7 +53,7 @@ const Directory = () => {
   return (
     <Fragment>
       <DirectoryContainer>
-        {directories.map((category )=> (
+        {directories.map((category)=> (
           <DirectoryItem key={category.id} category={category} />
         ))}
       </DirectoryContainer>
