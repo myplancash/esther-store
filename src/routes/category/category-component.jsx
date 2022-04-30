@@ -10,13 +10,16 @@ import { selectCategoriesMap } from '../../store/categories/categories.selector'
 import { CategoryContainer, CategoryTitle } from './category.styles.jsx';
 
 const Category = () => {
+  // takes the category name from url parameter
   const { category } = useParams();
   // const { categoriesMap } = useContext(CategoriesContext)
+  console.log('render/ re-rendering category component')
   const categoriesMap = useSelector(selectCategoriesMap);
   const [ products, setProducts ] = useState(categoriesMap[category]);
 
 
   useEffect(() => {
+    console.log('Effect fired calling setProducts')
     setProducts(categoriesMap[category])
   }, [category, categoriesMap])
 
