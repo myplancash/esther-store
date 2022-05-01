@@ -1,21 +1,28 @@
-import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartItem from '../cart-item/cart-item.component';
 import Button from '../button/button.component';
 // import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../../contexts/cart.context';
-
+// import { CartContext } from '../../contexts/cart.context';
+import { setIsCartOpen } from '../../store/cart/cart.action';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import { useSelector } from 'react-redux';
 import { CartDropdownContainer, CartItems, EmptyMessage, } from './cart-dropdown.styles.jsx';
 
-const CartDropdown = ({history, dispatch}) => {
-
-  const { cartItems, setIsCartOpen } = useContext(CartContext);
+const CartDropdown = () => {
+  const cartItems = useSelector(selectCartItems)
+  const dispatch = useDispatch();
+  // const { cartItems, setIsCartOpen } = useContext(CartContext);
 /*  const navigate = useNavigate();
 
   const goToCheckout = () => {
     navigate('/checkout')
   }
  */
+  const setIsCartOpenHandler = () => {
+    return dispatch(setIsCartOpen)
+  }
+
   return (
     <CartDropdownContainer>
       <CartItems>
@@ -24,7 +31,7 @@ const CartDropdown = ({history, dispatch}) => {
           <CartItem key={item.id} cartItem={item}/>
         ))) : (<EmptyMessage>Your cart is Empty</EmptyMessage>)}
       </CartItems>
-      <Link to="/checkout"><Button onClick={() => setIsCartOpen()}>GO TO CHECKOUT</Button></Link>
+      <Link to="/checkout"><Button onClick={setIsCartOpenHandler}>GO TO CHECKOUT</Button></Link>
     </CartDropdownContainer>
   )
 }
