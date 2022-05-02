@@ -6,7 +6,7 @@ import { store } from './store/store';
 import { BrowserRouter } from 'react-router-dom';
 // import { UserProvider } from './contexts/user.context';
 // import { CategoriesProvider } from './contexts/categories.context';∫
-import { CartProvider } from './contexts/cart.context';
+// import { CartProvider } from './contexts/cart.context';
 import App from './App';
 
 import './index.scss';
@@ -16,9 +16,9 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
           {/* <CategoriesProvider> */}
-            <CartProvider>
+            {/* <CartProvider> */}
               <App />
-            </CartProvider>
+            {/* </CartProvider> */}
           {/* </CategoriesProvider> */}
       </BrowserRouter>
     </Provider>
